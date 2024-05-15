@@ -20,8 +20,8 @@ const Input = ({
     rules,
     classNameWrapper,
     classNameInput = 'w-full shadow-inputBS py-3 px-4 outline-none rounded-[4px] bg-transparent',
-    classNameError = 'mt-1 mb-1 text-red-600 min-h-[2px] text-[14px] font-semibold',
-    classNameLabel = 'mb-1 block font-semibold',
+    classNameError = 'mt-1 mb-1 text-red-600 min-h-[21px] font-semibold text-[14px]',
+    classNameLabel = 'mb-2 block font-semibold text-[14px]',
     placeholder,
     autoComplete,
     labelName,
@@ -32,7 +32,7 @@ const Input = ({
     return (
         <div className={classNameWrapper}>
             <label className={classNameLabel}>
-                <span className="text-base label-text text-white">{labelName}</span>
+                <span className="text-[14px] label-text text-white">{labelName}</span>
             </label>
             <input
                 placeholder={placeholder}
@@ -42,7 +42,7 @@ const Input = ({
                 {...registerResult}
                 {...rest}
             />
-            {type != 'checkbox' && <div className={classNameError}>{errorsMessage}</div>}
+            <div className={classNameError}>{errorsMessage}</div>
         </div>
     );
 };

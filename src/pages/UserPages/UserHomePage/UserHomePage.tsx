@@ -1,7 +1,7 @@
 import videoBgMp4 from 'src/assets/video_background.mp4';
 import videoBgWebm from 'src/assets/video_bgWebm.webm';
 
-const Home = () => {
+const UserHomePage = () => {
     return (
         <div className="h-screen relative flex items-center justify-center xl:block bg-black">
             <video
@@ -17,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default UserHomePage;
