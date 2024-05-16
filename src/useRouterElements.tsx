@@ -8,6 +8,7 @@ import Login from './pages/AuthPages/Login';
 import ForgotPasswordPage from './pages/AuthPages/ForgotPasswordPage';
 import NotFound from './pages/NotFound';
 import AdminHomePage from './pages/AdminPages/AdminHomePage/AdminHomePage';
+import ChangePasswordPage from './pages/AuthPages/ChangePasswordPage';
 
 function ProtectRoute() {
     const roleAuth = useSelector((state: RootState) => state.RoleAuth.roleAuth);
@@ -45,6 +46,10 @@ const useRouterElements = () => {
                 {
                     path: path.forgotPassword,
                     element: <ForgotPasswordPage />,
+                },
+                {
+                    path: path.changePassword,
+                    element: <ChangePasswordPage />,
                 },
             ],
         },

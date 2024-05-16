@@ -3,6 +3,7 @@ const path = {
     UserHomePage: '/UserHomePage',
     AdminHomePage: '/AdminHomePage',
     forgotPassword: '/forgotPassword',
+    changePassword: '/changePassword',
     notFoundPage: '/notFoundPage',
 } as const;
 

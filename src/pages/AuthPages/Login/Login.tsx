@@ -10,15 +10,19 @@ import path from 'src/constants/path';
 import { setRoleAuth } from 'src/state/Auth.slide';
 import { RootState } from 'src/store';
 import { AuthSchema, authSchema } from 'src/utils/rules';
+
 export type FormDataLogin = Pick<AuthSchema, 'email' | 'password'>;
 const loginSchema = authSchema.pick(['email', 'password']);
+
 const Login = () => {
     const ListAccount = useSelector((state: RootState) => state.ListAccountSlide.ListAccount);
     const dispatch = useDispatch();
+    console.log(ListAccount);
 
     const {
         register,
         handleSubmit,
+        setError,
         formState: { errors },
     } = useForm<FormDataLogin>({
         defaultValues: {
@@ -31,11 +35,17 @@ const Login = () => {
     const onSubmit = handleSubmit((data) => {
         if (data.email === 'admin@gmail.com' && data.password === '123456') {
             dispatch(setRoleAuth('admin'));
+            return;
         }
         ListAccount.forEach((item) => {
             if (data.email === item.email && data.password === item.password) {
                 dispatch(setRoleAuth('user'));
+                return;
             }
+        });
+        setError('email', {
+            type: 'error',
+            message: 'The email or password is incorrect',
         });
     });
 

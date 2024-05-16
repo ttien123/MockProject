@@ -1,22 +1,16 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogClose,
-    DialogTrigger,
-} from 'src/components/ui/dialog';
+import { Dialog, DialogContent, DialogClose, DialogTrigger, DialogOverlay } from 'src/components/ui/dialog';
 
 interface Props {
-    ButtonClick: React.ReactNode;
+    ButtonClick?: React.ReactNode;
     ContentModal: React.ReactNode;
     ButtonClose: React.ReactNode;
+    open: boolean;
+    setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const DialogCst = ({ ButtonClick, ContentModal, ButtonClose }: Props) => {
+const DialogCst = ({ ButtonClick, ContentModal, ButtonClose, open, setOpen }: Props) => {
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger className="block w-full">{ButtonClick}</DialogTrigger>
             <DialogContent className="text-black">
                 {ContentModal}
