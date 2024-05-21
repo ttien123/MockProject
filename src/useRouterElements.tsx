@@ -9,6 +9,7 @@ import ForgotPasswordPage from './pages/AuthPages/ForgotPasswordPage';
 import NotFound from './pages/NotFound';
 import AdminHomePage from './pages/AdminPages/AdminHomePage/AdminHomePage';
 import ChangePasswordPage from './pages/AuthPages/ChangePasswordPage';
+import UserLayout from './layouts/UserLayout';
 
 function ProtectRoute() {
     const roleAuth = useSelector((state: RootState) => state.RoleAuth.roleAuth);
@@ -63,7 +64,13 @@ const useRouterElements = () => {
                     children: [
                         {
                             path: '',
-                            element: <UserHomePage />,
+                            element: <UserLayout />,
+                            children: [
+                                {
+                                    path: '',
+                                    element: <UserHomePage />,
+                                },
+                            ],
                         },
                     ],
                 },

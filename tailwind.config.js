@@ -14,6 +14,9 @@ module.exports = {
             },
         },
         extend: {
+            fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+            },
             colors: {
                 ...colorWeb,
                 border: 'hsl(var(--border))',
