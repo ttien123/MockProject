@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
 import videoBgMp4 from 'src/assets/video_background.mp4';
 import videoBgWebm from 'src/assets/video_bgWebm.webm';
+import { Link } from 'react-router-dom';
 import path from 'src/constants/path';
-import { FaCheck } from 'react-icons/fa6';
-import { toast } from 'react-toastify';
 const UserHomePage = () => {
     return (
         <div className="min-h-screen lg:h-screen relative flex flex-col items-center justify-center lg:block bg-black">
@@ -30,19 +28,19 @@ const UserHomePage = () => {
                             </p>
                         </div>
                         <div className="flex-1 flex items-end justify-center">
-                            <button
-                                onClick={() => toast.success('success')}
-                                className="mt-auto w-[300px] flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300"
+                            <Link
+                                to={path.timekeeping}
+                                className="mt-auto w-full flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300"
                             >
-                                <span className="mt-[-2px] mr-2">Timekeeping Today</span>
-                            </button>
+                                <span className="mt-[-2px]">Bảng chấm công</span>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="block lg:hidden pb-8">
                 <div className="containerCst">
-                    <div className="pt-10 max-w-[500px] flex flex-col min-h-[480px]">
+                    <div className="pt-10 flex flex-col min-h-[480px]">
                         <div>
                             <h1 className="text-[40px] font-semibold text-center">Welcome to AMELA</h1>
                             <h2 className="text-[25px] my-4 font-semibold text-center">
@@ -57,7 +55,7 @@ const UserHomePage = () => {
                         </div>
                         <div className="flex-1 flex items-end justify-center mt-6">
                             <button className="mt-auto w-[300px] flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300">
-                                <span className="mt-[-2px] mr-2">Timekeeping Today</span>
+                                <span className="mt-[-2px]">Bảng chấm công</span>
                             </button>
                         </div>
                     </div>

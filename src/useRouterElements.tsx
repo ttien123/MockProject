@@ -10,6 +10,8 @@ import NotFound from './pages/NotFound';
 import AdminHomePage from './pages/AdminPages/AdminHomePage/AdminHomePage';
 import ChangePasswordPage from './pages/AuthPages/ChangePasswordPage';
 import UserLayout from './layouts/UserLayout';
+import ProfileUserPage from './pages/UserPages/ProfileUserPage';
+import TimekeepingPage from './pages/UserPages/TimekeepingPage';
 
 function ProtectRoute() {
     const roleAuth = useSelector((state: RootState) => state.RoleAuth.roleAuth);
@@ -27,7 +29,7 @@ function AdminRoute() {
 
 function RejectedRoute() {
     const roleAuth = useSelector((state: RootState) => state.RoleAuth.roleAuth);
-    return !Boolean(roleAuth) ? (
+    return !roleAuth ? (
         <Outlet />
     ) : (
         <Navigate to={`${roleAuth === 'admin' ? path.AdminHomePage : path.UserHomePage}`} />
@@ -59,7 +61,23 @@ const useRouterElements = () => {
             element: <ProtectRoute />,
             children: [
                 {
-                    path: path.UserHomePage,
+                    path: '',
+                    element: <UserLayout />,
+                    children: [
+                        {
+                            path: path.profileUserPage,
+                            element: <ProfileUserPage />,
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            path: '',
+            element: <ProtectRoute />,
+            children: [
+                {
+                    path: '',
                     element: <UserRoute />,
                     children: [
                         {
@@ -67,8 +85,12 @@ const useRouterElements = () => {
                             element: <UserLayout />,
                             children: [
                                 {
-                                    path: '',
+                                    path: path.UserHomePage,
                                     element: <UserHomePage />,
+                                },
+                                {
+                                    path: path.timekeeping,
+                                    element: <TimekeepingPage />,
                                 },
                             ],
                         },
@@ -81,12 +103,18 @@ const useRouterElements = () => {
             element: <ProtectRoute />,
             children: [
                 {
-                    path: path.AdminHomePage,
-                    element: <AdminRoute />,
+                    path: '',
+                    element: <UserLayout />,
                     children: [
                         {
-                            path: '',
-                            element: <AdminHomePage />,
+                            path: path.AdminHomePage,
+                            element: <AdminRoute />,
+                            children: [
+                                {
+                                    path: '',
+                                    element: <AdminHomePage />,
+                                },
+                            ],
                         },
                     ],
                 },

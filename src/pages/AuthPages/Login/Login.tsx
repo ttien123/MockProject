@@ -1,13 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Input from 'src/components/Input';
 import Logo from 'src/components/Logo/Logo';
-import { Label } from 'src/components/ui/label';
-import { Switch } from 'src/components/ui/switch';
 import path from 'src/constants/path';
 import { setRoleAuth } from 'src/state/Auth.slide';
+import { setUserInfo } from 'src/state/ListAccount.slide';
 import { RootState } from 'src/store';
 import { AuthSchema, authSchema } from 'src/utils/rules';
 
@@ -17,8 +16,6 @@ const loginSchema = authSchema.pick(['email', 'password']);
 const Login = () => {
     const ListAccount = useSelector((state: RootState) => state.ListAccountSlide.ListAccount);
     const dispatch = useDispatch();
-    console.log(ListAccount);
-
     const {
         register,
         handleSubmit,
@@ -33,13 +30,10 @@ const Login = () => {
     });
 
     const onSubmit = handleSubmit((data) => {
-        if (data.email === 'admin@gmail.com' && data.password === '123456') {
-            dispatch(setRoleAuth('admin'));
-            return;
-        }
         ListAccount.forEach((item) => {
             if (data.email === item.email && data.password === item.password) {
-                dispatch(setRoleAuth('user'));
+                dispatch(setRoleAuth(item.role));
+                dispatch(setUserInfo(item));
                 return;
             }
         });
@@ -76,12 +70,6 @@ const Login = () => {
                                 type="password"
                                 errorsMessage={errors.password?.message}
                             />
-                        </div>
-                        <div className="flex items-center space-x-2 mt-2">
-                            <Switch id="airplane-mode" />
-                            <Label htmlFor="airplane-mode" className="text-[12px]">
-                                Remember me
-                            </Label>
                         </div>
                         <div className="my-6">
                             <button className="block h-[48px] font-medium text-center bg-[#FFCC46] hover:bg-colorWeb w-full rounded-full">

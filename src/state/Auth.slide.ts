@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { getIsAuthenticatedFromLS, setIsAuthenticatedToLS } from 'src/utils/auth';
 
 interface AuthState {
-    roleAuth: string;
+    roleAuth: 'admin' | 'user' | '';
 }
 
 const initialState: AuthState = {
@@ -10,10 +10,10 @@ const initialState: AuthState = {
 };
 
 const RoleAuthSlide = createSlice({
-    name: 'ListAccount',
+    name: 'RoleAuth',
     initialState,
     reducers: {
-        setRoleAuth: (state, action: PayloadAction<string>) => {
+        setRoleAuth: (state, action: PayloadAction<'user' | 'admin' | ''>) => {
             state.roleAuth = action.payload;
             setIsAuthenticatedToLS(action.payload);
         },

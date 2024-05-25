@@ -8,3 +8,12 @@ export const getListAccountUserFromLS = () => {
     const result = localStorage.getItem('listExercise');
     return result ? JSON.parse(result) : listAccountUser;
 };
+
+export const setUserInfoToLS = (user: UserAccountType | null) => {
+    localStorage.setItem('user', JSON.stringify(user));
+};
+
+export const getUserInfoFromLS = () => {
+    const result = localStorage.getItem('user');
+    return result ? JSON.parse(result) : null;
+};

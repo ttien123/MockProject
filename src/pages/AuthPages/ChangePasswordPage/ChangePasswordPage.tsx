@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DialogCst from 'src/components/DialogCst';
 import Input from 'src/components/Input';
 import Logo from 'src/components/Logo/Logo';
@@ -19,7 +19,6 @@ const ChangePasswordPage = () => {
     const ListAccount = useSelector((state: RootState) => state.ListAccountSlide.ListAccount);
     const emailForgot = useSelector((state: RootState) => state.ListAccountSlide.emailForgot);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -69,7 +68,7 @@ const ChangePasswordPage = () => {
             </Link>
             <div className="flex-1 bg-bgAuth flex justify-center ">
                 <div className="w-full max-w-[350px]">
-                    <h1 className="text-[32px] font-semibold text-center mt-[32px] mb-4">Change your password</h1>
+                    <h1 className="text-[30px] font-semibold text-center mt-[32px] mb-4">Change your password</h1>
                     <div className="mb-4 font-medium">Please enter a new password with at least 6 characters</div>
                     <form onSubmit={onSubmit}>
                         <div>

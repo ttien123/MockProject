@@ -69,8 +69,8 @@ const ForgotPasswordPage = () => {
             </Link>
             <div className="flex-1 bg-bgAuth flex justify-center ">
                 <div className="w-full max-w-[324px]">
-                    <h1 className="text-[32px] font-semibold text-center mt-[32px] mb-4">Reset your password</h1>
-                    <div className="mb-4 font-medium">
+                    <h1 className="text-[30px] font-semibold text-center mt-[32px] mb-4">Reset your password</h1>
+                    <div className="mb-6 font-medium">
                         Enter your email address, and we'll send you a link to get back into your account
                     </div>
                     <form onSubmit={onSubmit}>
