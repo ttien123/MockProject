@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useMatch, useNavigate } from 'react-router-dom';
 import InputSearch from 'src/components/InputSearch';
 import Logo from 'src/components/Logo/Logo';
 import SheetCst from 'src/components/SheetCst';
@@ -7,29 +7,48 @@ import { IoMdClose } from 'react-icons/io';
 import { BiLogOut } from 'react-icons/bi';
 import path from 'src/constants/path';
 import { Avatar, AvatarFallback, AvatarImage } from 'src/components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from 'src/components/ui/dropdown-menu';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'src/store';
+import { setRoleAuth } from 'src/state/Auth.slide';
+import { setUserInfoToLS } from 'src/utils/ListAccount.Local';
+
 const UserLayout = () => {
     const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const userInfo = useSelector((state: RootState) => state.ListAccountSlide.userInfo);
+    const isProfilePage = useMatch(path.profileUserPage);
+
+    const handleLogout = () => {
+        dispatch(setRoleAuth(''));
+        setUserInfoToLS(null);
+        navigate(path.login);
+    };
+
     return (
         <div>
             <header className="fixed top-0 left-0 right-0 z-10">
-                <div className="containerCst bg-transparent pt-[30px] pb-[35px] flex items-center">
-                    <div>
+                <div
+                    className={`${
+                        isProfilePage ? 'bg-[#222433] lg:bg-transparent' : 'bg-transparent'
+                    } containerCst pt-[30px] pb-[35px] flex items-center`}
+                >
+                    <Link to={path.UserHomePage}>
                         <Logo />
-                    </div>
+                    </Link>
                     <div className="flex-1 pl-10 hidden lg:block">
                         <InputSearch />
                     </div>
                     <div className="flex items-center justify-center">
-                        <Link
-                            to={path.login}
+                        <button
+                            onClick={handleLogout}
                             className="hidden lg:flex items-center justify-center w-[150px] mr-4 h-[40px] bg-transparent border border-[#2CFFFE] rounded-full font-semibold hover:bg-[#2F3B47] transition-all duration-300"
                         >
                             <span className="mt-[-2px]">Logout</span>
                             <BiLogOut className="w-5 h-5 text-white cursor-pointer ml-2" />
-                        </Link>
+                        </button>
                         <div className="hidden lg:block">
-                            <Link to={''}>
+                            <Link to={`/profileUserPage/${userInfo.id}`}>
                                 <Avatar>
                                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                                     <AvatarFallback>CN</AvatarFallback>
@@ -60,7 +79,10 @@ const UserLayout = () => {
                                             <h2 className="text-[24px] my-8 text-center font-semibold">
                                                 Welcome to AMELA
                                             </h2>
-                                            <Link to={''}>
+                                            <Link
+                                                onClick={() => setIsOpenMenu(false)}
+                                                to={`/profileUserPage/${userInfo.id}`}
+                                            >
                                                 <Avatar>
                                                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                                                     <AvatarFallback>CN</AvatarFallback>
@@ -69,16 +91,16 @@ const UserLayout = () => {
                                         </div>
                                     </div>
                                     <div className="flex-1">
-                                        <InputSearch />
+                                        <InputSearch setIsOpenMenu={setIsOpenMenu} />
                                     </div>
                                     <div>
-                                        <Link
-                                            to={path.login}
-                                            className="mt-auto flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300"
+                                        <button
+                                            onClick={handleLogout}
+                                            className="mt-auto w-full flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300"
                                         >
                                             <span className="mt-[-2px]">Logout</span>
                                             <BiLogOut className="w-5 h-5 text-white cursor-pointer ml-2" />
-                                        </Link>
+                                        </button>
                                     </div>
                                 </div>
                             }

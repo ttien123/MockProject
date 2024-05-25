@@ -6,7 +6,9 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
     classNameInput?: string;
     classNameError?: string;
     classNameLabel?: string;
+    extendClassNameInput?: string;
     classNameWrapper?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     register?: UseFormRegister<any>;
     rules?: RegisterOptions;
     labelName?: string;
@@ -23,8 +25,8 @@ const Input = ({
     classNameError = 'mt-1 mb-1 text-red-600 min-h-[21px] font-semibold text-[14px]',
     classNameLabel = 'mb-2 block font-semibold text-[14px]',
     placeholder,
-    autoComplete,
     labelName,
+    extendClassNameInput,
     ...rest
 }: Props) => {
     const registerResult = register && name ? register(name, rules) : null;
@@ -32,13 +34,13 @@ const Input = ({
     return (
         <div className={classNameWrapper}>
             <label className={classNameLabel}>
-                <span className="text-[14px] label-text text-white">{labelName}</span>
+                <span className="text-[14px] label-text">{labelName}</span>
             </label>
             <input
                 placeholder={placeholder}
                 autoComplete="current-password"
                 type={type}
-                className={classNameInput}
+                className={classNameInput + ' ' + extendClassNameInput}
                 {...registerResult}
                 {...rest}
             />

@@ -79,6 +79,7 @@ module.exports = {
             },
             backgroundImage: {
                 bgAuth: 'linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%)',
+                btnLinear: 'linear-gradient(91.34deg,#76caf9,#9c86f3 99.96%)',
             },
             boxShadow: {
                 inputBS: 'inset 0 0 0 1px #878787',
