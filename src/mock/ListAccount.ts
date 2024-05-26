@@ -11,19 +11,43 @@ const listAccountUser = [
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
-        typeUser: 'Thực tập',
+        typeUser: 'Admin',
         maritalStatus: 'Chưa kết hôn',
-        group: 'Faderless(Faderless 1)',
+        group: 'Admin',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
-        contractType: 'Hợp đồng học việc',
+        contractType: 'Admin',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
-        processCareer: [
+        listTimekeeping: [
             {
-                start: '15/05/2024',
-                end: 'Chưa cập nhật',
-                position: 'Nhân viên Thực tập',
+                date: 1,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 2,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 17,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 20,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
             },
         ],
+        processCareer: [],
     },
     {
         id: '0',
@@ -43,6 +67,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 1,
+                startWork: '8:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 2,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 13,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 16,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -74,6 +128,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 1,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 2,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 21,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 24,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -100,6 +184,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 1,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 2,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 3,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 6,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -126,6 +240,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 1,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 2,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 6,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 22,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -152,6 +296,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 14,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 15,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 17,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 23,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -178,6 +352,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 18,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 18,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 18,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 18,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -204,6 +408,36 @@ const listAccountUser = [
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
         perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
+        listTimekeeping: [
+            {
+                date: 18,
+                startWork: '8:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 18,
+                startWork: '8:30',
+                workHours: 6,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 18,
+                startWork: '10:10',
+                workHours: 4,
+                late: 10,
+                endWork: '18:20',
+            },
+            {
+                date: 18,
+                startWork: '13:10',
+                workHours: 8,
+                late: 10,
+                endWork: '18:20',
+            },
+        ],
         processCareer: [
             {
                 start: '15/05/2024',
@@ -215,6 +449,14 @@ const listAccountUser = [
 ];
 
 export default listAccountUser;
+
+export type TimekeepingType = {
+    date: number;
+    startWork: string;
+    workHours: number;
+    late: number;
+    endWork: string;
+};
 export type UserAccountType = {
     id: string;
     email: string;
@@ -233,6 +475,7 @@ export type UserAccountType = {
     group: string;
     residenceAddress: string;
     perAddress: string;
+    listTimekeeping: TimekeepingType[];
     processCareer: {
         start: string;
         end: string;
