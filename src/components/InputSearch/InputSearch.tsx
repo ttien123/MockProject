@@ -32,8 +32,7 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
             const newListAccountFound = listAccount.filter(
                 (e) =>
                     e.name.toLocaleLowerCase().includes(valueInput?.trim().toLocaleLowerCase() || '') &&
-                    e.id !== userAccount.id &&
-                    e.role !== 'admin',
+                    e.id !== userAccount.id,
             );
             setOpenDropDown(true);
             setListAccountFound(newListAccountFound);
