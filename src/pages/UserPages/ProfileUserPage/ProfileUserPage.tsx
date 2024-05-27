@@ -200,7 +200,7 @@ const ProfileUserPage = () => {
                                                                 <IconClose />
                                                             </button>
                                                         </div>
-                                                        <div className="text-white py-2 flex items-center justify-between">
+                                                        <div className="text-white py-2 flex items-center justify-between gap-2">
                                                             <div>
                                                                 <div>Tên: {currentUser.name}</div>
                                                                 <div className="mt-2">Email: {currentUser.email}</div>

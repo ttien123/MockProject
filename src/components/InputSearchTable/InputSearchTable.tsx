@@ -29,7 +29,7 @@ const InputSearchTable = () => {
                     value={valueInput}
                     onChange={handleChange}
                     placeholder="Search…"
-                    className="flex-1 h-full px-4 text-black outline-none border-none text-[14px]"
+                    className="flex-1 h-full px-4 text-black outline-none border-none text-[14px] rounded-none"
                 />
                 <button className="bg-[#FFDD5C] text-white h-full min-w-[50px] flex items-center justify-center">
                     <IoSearchSharp className="w-6 h-6 outline-none" />
