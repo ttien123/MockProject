@@ -11,6 +11,7 @@ const UserHomePage = () => {
                     muted
                     loop
                     autoPlay
+                    playsInline
                 >
                     <source type="video/mp4" src={videoBgMp4}></source>
                     <source type="video/mp4" src={videoBgWebm}></source>
