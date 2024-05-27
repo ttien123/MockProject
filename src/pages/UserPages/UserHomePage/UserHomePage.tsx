@@ -5,18 +5,21 @@ import path from 'src/constants/path';
 const UserHomePage = () => {
     return (
         <div className="min-h-screen lg:h-screen relative flex flex-col items-center justify-center lg:block bg-black">
-            <video
-                className="h-[450px] lg:h-full w-full block object-cover object-[75%] lg:object-[0] cursor-not-allowed pointer-events-none select-none"
-                muted
-                loop
-                autoPlay
-            >
-                <source type="video/mp4" src={videoBgMp4}></source>
-                <source type="video/mp4" src={videoBgWebm}></source>
-            </video>
+            <div className="h-full">
+                <video
+                    className="h-[450px] lg:h-full w-full block object-cover object-[75%] lg:object-[0] cursor-not-allowed pointer-events-none select-none"
+                    muted
+                    loop
+                    autoPlay
+                >
+                    <source type="video/mp4" src={videoBgMp4}></source>
+                    <source type="video/mp4" src={videoBgWebm}></source>
+                </video>
+                <div className="absolute top-0 left-0 right-0 bottom-0 bg-transparent z-1 cursor-not-allowed pointer-events-none select-none"></div>
+            </div>
             <div className="hidden lg:block absolute top-0 left-0 right-0 bottom-0">
                 <div className="mt-[105px] containerCst">
-                    <div className="pt-10 max-w-[500px] flex flex-col min-h-[480px]">
+                    <div className="lg:pt-10 max-w-[500px] flex flex-col min-h-[480px]">
                         <div>
                             <h1 className="text-[40px] font-semibold">Welcome to AMELA</h1>
                             <h2 className="text-[25px] my-4 font-semibold">Tek For Human - Công nghệ vị nhân sinh</h2>
