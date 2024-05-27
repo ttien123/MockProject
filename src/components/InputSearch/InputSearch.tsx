@@ -7,6 +7,7 @@ import PopoverCst from '../PopoverCst';
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import Nodata from '../Nodata';
+import useDebounce from 'src/hooks/useDebounce';
 
 interface Props {
     setIsOpenMenu?: (value: React.SetStateAction<boolean>) => void;
@@ -18,6 +19,13 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
     const [listAccountFound, setListAccountFound] = useState<UserAccountType[]>([]);
     const [valueInput, setValueInput] = useState('');
     const [openDropDown, setOpenDropDown] = useState(false);
+    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const searchValue = e.target.value;
+    //     if (!searchValue.startsWith(' ')) {
+    //         setValueInput(e.target.value);
+    //     }
+    // };
+    const debouncedValue = useDebounce(valueInput, 500);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
@@ -26,18 +34,32 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
     };
 
     useEffect(() => {
-        if (!valueInput) {
+        if (!debouncedValue.trim()) {
             setOpenDropDown(false);
         } else {
             const newListAccountFound = listAccount.filter(
                 (e) =>
-                    e.name.toLocaleLowerCase().includes(valueInput?.trim().toLocaleLowerCase() || '') &&
+                    e.name.toLocaleLowerCase().includes(debouncedValue?.trim().toLocaleLowerCase() || '') &&
                     e.id !== userAccount.id,
             );
             setOpenDropDown(true);
             setListAccountFound(newListAccountFound);
         }
-    }, [valueInput, listAccount, userAccount.id]);
+    }, [debouncedValue, listAccount, userAccount.id, valueInput]);
+
+    // useEffect(() => {
+    //     if (!valueInput) {
+    //         setOpenDropDown(false);
+    //     } else {
+    //         const newListAccountFound = listAccount.filter(
+    //             (e) =>
+    //                 e.name.toLocaleLowerCase().includes(valueInput?.trim().toLocaleLowerCase() || '') &&
+    //                 e.id !== userAccount.id,
+    //         );
+    //         setOpenDropDown(true);
+    //         setListAccountFound(newListAccountFound);
+    //     }
+    // }, [valueInput, listAccount, userAccount.id]);
 
     return (
         <div>

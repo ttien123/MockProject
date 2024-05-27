@@ -54,9 +54,12 @@ const UserHomePage = () => {
                             </p>
                         </div>
                         <div className="flex-1 flex items-end justify-center mt-6">
-                            <button className="mt-auto w-[300px] flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300">
+                            <Link
+                                to={path.timekeeping}
+                                className="mt-auto w-[300px] flex items-center justify-center mr-4 h-[40px] bg-[#2F3B47] border border-[#2CFFFE] rounded-full font-semibold hover:bg-black transition-all duration-300"
+                            >
                                 <span className="mt-[-2px]">Bảng chấm công</span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

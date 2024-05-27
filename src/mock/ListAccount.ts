@@ -2,12 +2,12 @@ const listAccountUser = [
     {
         id: '7',
         role: 'admin',
+        userManager: 'Võ Phi Hùng',
         email: 'admin@gmail.com',
         emailPersonal: '',
         name: 'Nguyen Văn Admin',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -16,7 +16,6 @@ const listAccountUser = [
         group: 'Admin',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Admin',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 1,
@@ -28,7 +27,7 @@ const listAccountUser = [
             {
                 date: 2,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -52,12 +51,12 @@ const listAccountUser = [
     {
         id: '0',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy1@gmail.com',
         emailPersonal: '',
         name: 'Nguyen Van long',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -66,7 +65,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 1,
@@ -78,7 +76,7 @@ const listAccountUser = [
             {
                 date: 2,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -113,12 +111,12 @@ const listAccountUser = [
     {
         id: '1',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy2@gmail.com',
         emailPersonal: '',
         name: 'Nguyen Van thuy',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -127,7 +125,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 1,
@@ -139,7 +136,7 @@ const listAccountUser = [
             {
                 date: 2,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -169,12 +166,12 @@ const listAccountUser = [
     {
         id: '2',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy3@gmail.com',
         emailPersonal: '',
         name: 'Nguyen hoang Huy',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -183,7 +180,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 1,
@@ -195,7 +191,7 @@ const listAccountUser = [
             {
                 date: 2,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -225,12 +221,12 @@ const listAccountUser = [
     {
         id: '3',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy4@gmail.com',
         emailPersonal: '',
         name: 'Nguyen tran Huy',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -239,7 +235,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 1,
@@ -251,7 +246,7 @@ const listAccountUser = [
             {
                 date: 2,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -281,12 +276,12 @@ const listAccountUser = [
     {
         id: '4',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy5@gmail.com',
         emailPersonal: '',
         name: 'Nguyen Van viet',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -295,7 +290,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 14,
@@ -307,7 +301,7 @@ const listAccountUser = [
             {
                 date: 15,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -337,12 +331,12 @@ const listAccountUser = [
     {
         id: '5',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy6@gmail.com',
         emailPersonal: '',
         name: 'Nguyen Van tien',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -351,7 +345,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 18,
@@ -363,7 +356,7 @@ const listAccountUser = [
             {
                 date: 18,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -393,12 +386,12 @@ const listAccountUser = [
     {
         id: '6',
         role: 'user',
+        userManager: 'Võ Phi Hùng',
         email: 'nguyenvanhuy7@gmail.com',
         emailPersonal: '',
         name: 'Nguyen hung Huy',
         password: '123456',
         birthday: '01/06/2002',
-        country: 'Việt Nam',
         gender: 'nam',
         stateAccount: 'Active',
         phoneNumber: '0386902560',
@@ -407,7 +400,6 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        perAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         listTimekeeping: [
             {
                 date: 18,
@@ -419,7 +411,7 @@ const listAccountUser = [
             {
                 date: 18,
                 startWork: '8:30',
-                workHours: 6,
+                workHours: 4,
                 late: 10,
                 endWork: '18:20',
             },
@@ -461,11 +453,11 @@ export type UserAccountType = {
     id: string;
     email: string;
     role: 'user' | 'admin' | '';
+    userManager: string;
     emailPersonal: string;
     name: string;
     password: string;
     birthday: string;
-    country: string;
     gender: string;
     stateAccount: string;
     phoneNumber: string;
@@ -474,7 +466,6 @@ export type UserAccountType = {
     maritalStatus: string;
     group: string;
     residenceAddress: string;
-    perAddress: string;
     listTimekeeping: TimekeepingType[];
     processCareer: {
         start: string;

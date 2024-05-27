@@ -39,7 +39,7 @@ const Login = () => {
         });
         setError('email', {
             type: 'error',
-            message: 'The email or password is incorrect',
+            message: 'The email or password is incorrect or does not exist',
         });
     });
 

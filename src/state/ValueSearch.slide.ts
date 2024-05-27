@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { getIsAuthenticatedFromLS, setIsAuthenticatedToLS } from 'src/utils/auth';
+import { getIsAuthenticatedFromLS } from 'src/utils/auth';
 
 interface ValueSearch {
     valueSearch: string;

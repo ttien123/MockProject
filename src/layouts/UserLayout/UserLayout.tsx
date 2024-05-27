@@ -17,7 +17,7 @@ const UserLayout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userInfo = useSelector((state: RootState) => state.ListAccountSlide.userInfo);
-    const isProfilePage = useMatch(path.profileUserPage);
+    const isUserHomePage = useMatch(path.UserHomePage);
 
     const handleLogout = () => {
         dispatch(setRoleAuth(''));
@@ -30,7 +30,7 @@ const UserLayout = () => {
             <header className="fixed top-0 left-0 right-0 z-10">
                 <div
                     className={`${
-                        isProfilePage ? 'bg-[#222433] lg:bg-transparent' : 'bg-transparent'
+                        !isUserHomePage ? 'bg-[#222433] lg:bg-transparent' : 'bg-transparent'
                     } containerCst pt-[30px] pb-[35px] flex items-center`}
                 >
                     <Link to={path.UserHomePage}>
@@ -44,7 +44,7 @@ const UserLayout = () => {
                             onClick={handleLogout}
                             className="hidden lg:flex items-center justify-center w-[150px] mr-4 h-[40px] bg-transparent border border-[#2CFFFE] rounded-full font-semibold hover:bg-[#2F3B47] transition-all duration-300"
                         >
-                            <span className="mt-[-2px]">Logout</span>
+                            <span>Logout</span>
                             <BiLogOut className="w-5 h-5 text-white cursor-pointer ml-2" />
                         </button>
                         <div className="hidden lg:block">

@@ -242,13 +242,14 @@ const TimekeepingPage = () => {
                                             key={index}
                                             className={`${
                                                 dayWork && Number(dayWork.workHours) >= 4
-                                                    ? 'bg-[#bbfdb9]'
+                                                    ? '!bg-[#bbfdb9]'
                                                     : 'bg-[#ffc6c6]'
                                             }  ${
-                                                (index + 1 > currentDate.getDate() ||
+                                                (index + 1 >= currentDate.getDate() ||
                                                     isCheckWeekend === 0 ||
                                                     isCheckWeekend === 6) &&
-                                                'bg-[#fff]'
+                                                !dayWork &&
+                                                '!bg-[#fff]'
                                             } ${
                                                 dayWork && dayWork.startWork && !dayWork.endWork && '!bg-[#f9e2c0]'
                                             } col-span-1 cursor-pointer text-[14px] border border-[#E7E7E7] min-h-[104px]`}
@@ -260,9 +261,10 @@ const TimekeepingPage = () => {
                                                             ? '!bg-[#2ecc71]'
                                                             : 'bg-[#e74c3c]'
                                                     } ${
-                                                        (index + 1 > currentDate.getDate() ||
+                                                        (index + 1 >= currentDate.getDate() ||
                                                             isCheckWeekend === 0 ||
                                                             isCheckWeekend === 6) &&
+                                                        !dayWork &&
                                                         'bg-white'
                                                     } ${
                                                         dayWork &&
@@ -274,7 +276,7 @@ const TimekeepingPage = () => {
                                                 <div className="flex flex-1 flex-col h-full p-1">
                                                     <div>{index + 1}</div>
                                                     {((!(isCheckWeekend === 0 || isCheckWeekend === 6) &&
-                                                        index + 1 <= currentDate.getDate()) ||
+                                                        index + 1 < currentDate.getDate()) ||
                                                         (index + 1 === currentDate.getDate() && dayWork)) && (
                                                         <>
                                                             <div className="flex-1 hidden xl:flex  flex-col justify-evenly">
