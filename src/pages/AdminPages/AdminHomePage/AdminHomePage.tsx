@@ -33,7 +33,7 @@ const AdminHomePage = () => {
                                 <DialogCst
                                     open={openCreateAccount}
                                     setOpen={setOpenCreateAccount}
-                                    classNameContent={`text-black p-0 border-none overflow-hidden bg-[#222433] px-4 pb-4 pt-2 max-w-[90%] rounded-[10px] max-w-[1000px]`}
+                                    classNameContent={`text-black p-0 border-none overflow-hidden bg-[#222433] px-4 pb-4 pt-2 max-w-[90%] rounded-[10px] lg:max-w-[1000px]`}
                                     ButtonClick={
                                         <div className="flex items-center justify-center py-2 w-full lg:w-[200px] h-full bg-transparent border border-[#2CFFFE] rounded-full font-semibold hover:bg-[#2F3B47] transition-all duration-300">
                                             Thêm thành viên

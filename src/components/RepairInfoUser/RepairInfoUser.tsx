@@ -10,6 +10,7 @@ import InputNumber from '../InputNumber';
 import { useEffect } from 'react';
 import { UserAccountType } from 'src/mock/ListAccount';
 import { setListAccount } from 'src/state/ListAccount.slide';
+import { toast } from 'react-toastify';
 
 interface Props {
     setOpenModalRepairInfo: (value: React.SetStateAction<boolean>) => void;
@@ -72,6 +73,7 @@ const RepairInfoUser = ({ setOpenModalRepairInfo, currentUser }: Props) => {
         });
         dispatch(setListAccount(newList));
         setOpenModalRepairInfo(false);
+        toast.success('Sửa thông tin thành công');
     });
 
     useEffect(() => {
