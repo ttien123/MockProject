@@ -33,6 +33,16 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
         }
     };
 
+    const handleSearch = () => {
+        const newListAccountFound = listAccount.filter(
+            (e) =>
+                e.name.toLocaleLowerCase().includes(debouncedValue?.trim().toLocaleLowerCase() || '') &&
+                e.id !== userAccount.id,
+        );
+        setOpenDropDown(true);
+        setListAccountFound(newListAccountFound);
+    };
+
     useEffect(() => {
         if (!debouncedValue.trim()) {
             setOpenDropDown(false);
@@ -46,20 +56,6 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
             setListAccountFound(newListAccountFound);
         }
     }, [debouncedValue, listAccount, userAccount.id, valueInput]);
-
-    // useEffect(() => {
-    //     if (!valueInput) {
-    //         setOpenDropDown(false);
-    //     } else {
-    //         const newListAccountFound = listAccount.filter(
-    //             (e) =>
-    //                 e.name.toLocaleLowerCase().includes(valueInput?.trim().toLocaleLowerCase() || '') &&
-    //                 e.id !== userAccount.id,
-    //         );
-    //         setOpenDropDown(true);
-    //         setListAccountFound(newListAccountFound);
-    //     }
-    // }, [valueInput, listAccount, userAccount.id]);
 
     return (
         <div>
@@ -112,7 +108,10 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
                         placeholder="Search…"
                         className="flex-1 h-full px-4 text-black outline-none border-none text-[14px] rounded-none"
                     />
-                    <button className="bg-[#FFDD5C] text-white h-full min-w-[50px] flex items-center justify-center">
+                    <button
+                        onClick={handleSearch}
+                        className="bg-[#FFDD5C] text-white h-full min-w-[50px] flex items-center justify-center"
+                    >
                         <IoSearchSharp className="w-6 h-6 outline-none" />
                     </button>
                 </div>
