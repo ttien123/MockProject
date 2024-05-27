@@ -35,7 +35,7 @@ const InfoTimeKeeping = () => {
                         <div>
                             <IconAfterNoon />
                         </div>
-                        <div className="text-[14px] text-white">08:00 - 12:00</div>
+                        <div className="text-[14px] text-white">13:30 - 17:30</div>
                     </div>
                 </div>
             </div>

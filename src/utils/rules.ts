@@ -21,6 +21,9 @@ export const authSchema = yup.object({
 
 export const repairInfoUserSchema = yup.object({
     emailPersonal: yup.string().email('This is not an email'),
+    email: yup.string().email('This is not an email').required('This is a required field'),
+    gender: yup.string().required('This is a required field'),
+    birthday: yup.string().required('This is a required field'),
     phoneNumber: yup.string().required('This is a required field').min(6, 'This field must be at least 6 characters'),
     residenceAddress: yup
         .string()
@@ -31,6 +34,9 @@ export const repairInfoUserSchema = yup.object({
     group: yup.string().required('This is a required field').min(6, 'This field must be at least 6 characters'),
     maritalStatus: yup.string(),
     stateAccount: yup.string(),
+    password: yup.string().required('Password is a required field').min(6, 'Password must be at least 6 characters'),
+    name: yup.string().required('Name is a required field').min(6, 'Name must be at least 6 characters'),
+    userManager: yup.string().required('This is a required field').min(6, 'This must be at least 6 characters'),
 });
 
 export type AuthSchema = yup.InferType<typeof authSchema>;

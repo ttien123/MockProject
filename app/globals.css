@@ -95,3 +95,11 @@
     background-color: #fff;
     border-radius: 10px;
 }
+
+.rdp-dropdown_year {
+    display: flex;
+}
+
+.rdp-dropdown_year .rdp-dropdown {
+    flex: 1;
+}

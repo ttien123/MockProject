@@ -5,7 +5,7 @@ export const setListAccountUserToLS = (ListAccount: UserAccountType[]) => {
 };
 
 export const getListAccountUserFromLS = () => {
-    const result = localStorage.getItem('listExercise');
+    const result = localStorage.getItem('ListAccount');
     return result ? JSON.parse(result) : listAccountUser;
 };
 

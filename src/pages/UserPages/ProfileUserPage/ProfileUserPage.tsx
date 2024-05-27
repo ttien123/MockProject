@@ -1,11 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import IconPen from 'src/assets/IconPen';
 import { Avatar, AvatarFallback, AvatarImage } from 'src/components/ui/avatar';
 import { RootState } from 'src/store';
 import iconInfo from 'src/assets/infoUser.png';
 import iconBag from 'src/assets/iconBag.png';
 import iconDot from 'src/assets/iconDot.png';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa6';
 import path from 'src/constants/path';
 import { UserAccountType } from 'src/mock/ListAccount';
@@ -13,14 +13,27 @@ import { useEffect, useState } from 'react';
 import DialogCst from 'src/components/DialogCst';
 import RepairInfoUser from 'src/components/RepairInfoUser';
 import IconClose from 'src/assets/IconClose';
-
+import { IoTrashBinSharp } from 'react-icons/io5';
+import { setListAccount } from 'src/state/ListAccount.slide';
+import { toast } from 'react-toastify';
 const ProfileUserPage = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [openModalRepairInfo, setOpenModalRepairInfo] = useState(false);
+    const [openModalDeleteUser, setOpenModalDeleteUser] = useState(false);
     const role = useSelector((state: RootState) => state.RoleAuth.roleAuth);
     const listAccount = useSelector((state: RootState) => state.ListAccountSlide.ListAccount);
     const userActive = useSelector((state: RootState) => state.ListAccountSlide.userInfo);
     const [currentUser, setCurrentUser] = useState<UserAccountType>(userActive);
+    const handleDeleteUSer = () => {
+        navigate(path.AdminHomePage);
+        const newListAccount = listAccount.filter((item) => {
+            return item.id !== id;
+        });
+        dispatch(setListAccount(newListAccount));
+        toast.success('Xóa tài khoản thành công');
+    };
 
     useEffect(() => {
         const newCurrentUser = listAccount.find((item) => item.id === id);
@@ -53,7 +66,7 @@ const ProfileUserPage = () => {
                                     </div>
                                     <div className="mt-4 font-medium">
                                         <div className="font-semibold">Người quản lý</div>
-                                        <div className="text-[14px] mt-2">Võ Phi Hùng</div>
+                                        <div className="text-[14px] mt-2">{currentUser.userManager}</div>
                                     </div>
                                     <div className="mt-4 font-medium">
                                         <div className="font-semibold">Loại chấm công</div>
@@ -115,41 +128,99 @@ const ProfileUserPage = () => {
                                         Thông tin cá nhân
                                     </div>
                                 </div>
-                                {(role === 'admin' || userActive.id === currentUser.id) && (
-                                    <div>
-                                        <DialogCst
-                                            open={openModalRepairInfo}
-                                            setOpen={setOpenModalRepairInfo}
-                                            classNameContent={`text-black p-0 border-none overflow-hidden bg-[#222433] px-4 pb-4 pt-2 max-w-[90%] rounded-[10px]  ${
-                                                role === 'admin' ? 'lg:max-w-[1000px]' : 'lg:max-w-[500px]'
-                                            }`}
-                                            ButtonClick={
-                                                <div className="text-[#FEA628] bg-[#f9fbfc] flex items-center justify-center border border-[#e7e7e7] w-[34px] h-[34px] p-[3px] rounded-[50%]">
-                                                    <IconPen />
-                                                </div>
-                                            }
-                                            ContentModal={
-                                                <div>
-                                                    <div className="flex items-center justify-between pb-1 border-b border-b-[#ebebeb]">
-                                                        <div className="text-[20px] text-white font-medium flex-1 text-center">
-                                                            Chỉnh sửa thông tin cá nhân
-                                                        </div>
-                                                        <button
-                                                            onClick={() => setOpenModalRepairInfo(false)}
-                                                            className="text-colorWeb p-1 rounded-[50%] border border-[#223354]"
-                                                        >
-                                                            <IconClose />
-                                                        </button>
+                                <div className="flex items-center gap-2">
+                                    {(role === 'admin' || userActive.id === currentUser.id) && (
+                                        <div>
+                                            <DialogCst
+                                                open={openModalRepairInfo}
+                                                setOpen={setOpenModalRepairInfo}
+                                                classNameContent={`text-black p-0 border-none overflow-hidden bg-[#222433] px-4 pb-4 pt-2 max-w-[90%] rounded-[10px]  ${
+                                                    role === 'admin' ? 'lg:max-w-[1000px]' : 'lg:max-w-[500px]'
+                                                }`}
+                                                ButtonClick={
+                                                    <div className="text-[#FEA628] bg-[#f9fbfc] flex items-center justify-center border border-[#e7e7e7] w-[34px] h-[34px] p-[3px] rounded-[50%]">
+                                                        <IconPen />
                                                     </div>
-                                                    <RepairInfoUser
-                                                        setOpenModalRepairInfo={setOpenModalRepairInfo}
-                                                        currentUser={currentUser}
-                                                    />
-                                                </div>
-                                            }
-                                        />
-                                    </div>
-                                )}
+                                                }
+                                                ContentModal={
+                                                    <div>
+                                                        <div className="flex items-center justify-between pb-1 border-b border-b-[#ebebeb]">
+                                                            <div className="text-[20px] text-white font-medium flex-1 text-center">
+                                                                Chỉnh sửa thông tin cá nhân
+                                                            </div>
+                                                            <button
+                                                                onClick={() => setOpenModalRepairInfo(false)}
+                                                                className="text-colorWeb p-1 rounded-[50%] border border-[#223354]"
+                                                            >
+                                                                <IconClose />
+                                                            </button>
+                                                        </div>
+                                                        <RepairInfoUser
+                                                            setOpenModalRepairInfo={setOpenModalRepairInfo}
+                                                            currentUser={currentUser}
+                                                        />
+                                                    </div>
+                                                }
+                                            />
+                                        </div>
+                                    )}
+                                    {role === 'admin' && userActive.id !== id && (
+                                        <div>
+                                            <DialogCst
+                                                open={openModalDeleteUser}
+                                                setOpen={setOpenModalDeleteUser}
+                                                classNameContent={`text-black p-0 border-none overflow-hidden bg-[#222433] px-4 pb-4 pt-2 max-w-[90%] rounded-[10px] max-w-[500px]`}
+                                                ButtonClick={
+                                                    <div className="text-[#FEA628] bg-[#f9fbfc] flex items-center justify-center border border-[#e7e7e7] w-[34px] h-[34px] p-[3px] rounded-[50%]">
+                                                        <IoTrashBinSharp size={20} />
+                                                    </div>
+                                                }
+                                                ContentModal={
+                                                    <div>
+                                                        <div className="flex items-center justify-between pb-1 border-b border-b-[#ebebeb]">
+                                                            <div className="text-[20px] text-white font-medium flex-1 text-center">
+                                                                Xóa tài khoản
+                                                            </div>
+                                                            <button
+                                                                onClick={() => setOpenModalDeleteUser(false)}
+                                                                className="text-colorWeb p-1 rounded-[50%] border border-[#223354]"
+                                                            >
+                                                                <IconClose />
+                                                            </button>
+                                                        </div>
+                                                        <div className="text-white py-2 flex items-center justify-between">
+                                                            <div>
+                                                                <div>Tên: {currentUser.name}</div>
+                                                                <div className="mt-2">Email: {currentUser.email}</div>
+                                                            </div>
+                                                            <div>
+                                                                <div>Group: {currentUser.group}</div>
+                                                                <div className="mt-2">
+                                                                    Loại hợp đồng: {currentUser.contractType}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="mt-4 flex flex-col lg:flex-row items-center justify-center gap-4">
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setOpenModalDeleteUser(false)}
+                                                                className="bg-[#fff8ee] border border-[#fff8ee] hover:border-colorWeb transition-all duration-300 hover:bg-colorWeb hover:text-white rounded-sm  text-[14px] py-2 px-8 w-full lg:w-[200px] text-[#fea628] font-medium"
+                                                            >
+                                                                Hủy
+                                                            </button>
+                                                            <button
+                                                                onClick={handleDeleteUSer}
+                                                                className="bg-[#fea628] border border-[#fff8ee] hover:border-colorWeb transition-all duration-300 hover:bg-white hover:text-colorWeb rounded-sm text-[14px] py-2 px-8 w-full lg:w-[200px] text-white font-medium"
+                                                            >
+                                                                Xóa
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            />
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                             <div
                                 className={`${
@@ -160,7 +231,7 @@ const ProfileUserPage = () => {
                                     <div className="col-span-1 font-semibold py-4 lg:py-0">Ngày sinh</div>
                                     <div className="col-span-1 xl:col-span-2 py-4 lg:py-0">{currentUser.birthday}</div>
                                     <div className="col-span-1 font-semibold py-4 lg:py-0">Quốc tịch</div>
-                                    <div className="col-span-1 py-4 lg:py-0">{currentUser.country}</div>
+                                    <div className="col-span-1 py-4 lg:py-0">Việt Nam</div>
                                 </div>
                                 <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:py-4 text-[14px]">
                                     <div className="col-span-1 font-semibold py-4 lg:py-0">Giới tính</div>
@@ -195,7 +266,7 @@ const ProfileUserPage = () => {
                                 <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:py-4 text-[14px]">
                                     <div className="col-span-1 font-semibold py-4 lg:py-0">Địa chỉ thường trú</div>
                                     <div className="col-span-1 xl:col-span-2 py-4 lg:py-0">
-                                        {currentUser.perAddress}
+                                        TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên
                                     </div>
                                     <div className="col-span-1 font-semibold py-4 lg:py-0">Email cá nhân</div>
                                     <div className="col-span-1 py-4 lg:py-0">
@@ -203,8 +274,8 @@ const ProfileUserPage = () => {
                                     </div>
                                 </div>
                             </div>
-                            {currentUser.processCareer.length > 0 && (
-                                <div>
+                            {!(role === 'admin' && userActive.id === id) && (
+                                <div className="min-h-[148px]">
                                     <div className="pt-4 py-3 border-b border-b-[#ebebeb] flex items-center">
                                         <div>
                                             <img src={iconBag} alt="img" className="block w-[25px] h-[25px]" />
@@ -213,40 +284,44 @@ const ProfileUserPage = () => {
                                             Giai đoạn sự nghiệp
                                         </div>
                                     </div>
-                                    <div className="grid grid-cols-3 gap-4 mt-4">
-                                        {currentUser.processCareer.map((item, index) => (
-                                            <div
-                                                key={index}
-                                                className="col-span-3 lg:col-span-1 bg-[#D5F5E3] px-[15px] py-3 rounded-[6px]"
-                                            >
-                                                <div className="flex lg:flex-col xl:flex-row xl:items-center lg:items-start justify-between gap-2">
-                                                    <div className="flex items-center">
-                                                        <div>
-                                                            <img
-                                                                src={iconDot}
-                                                                alt="img"
-                                                                className="block w-[10px] h-[10px]"
-                                                            />
+                                    {currentUser.processCareer.length > 0 && (
+                                        <div className="grid grid-cols-3 gap-4 mt-4">
+                                            {currentUser.processCareer.map((item, index) => (
+                                                <div
+                                                    key={index}
+                                                    className="col-span-3 lg:col-span-1 bg-[#D5F5E3] px-[15px] py-3 rounded-[6px]"
+                                                >
+                                                    <div className="flex lg:flex-col xl:flex-row xl:items-center lg:items-start justify-between gap-2">
+                                                        <div className="flex items-center">
+                                                            <div>
+                                                                <img
+                                                                    src={iconDot}
+                                                                    alt="img"
+                                                                    className="block w-[10px] h-[10px]"
+                                                                />
+                                                            </div>
+                                                            <div className="ml-2 text-[14px]">{item.start}</div>
                                                         </div>
-                                                        <div className="ml-2 text-[14px]">{item.start}</div>
+                                                        <div className="flex items-center">
+                                                            <div>
+                                                                <img
+                                                                    src={iconDot}
+                                                                    alt="img"
+                                                                    className="block w-[10px] h-[10px]"
+                                                                />
+                                                            </div>
+                                                            <div className="ml-2 text-[14px]">
+                                                                {item.end || 'Chưa cập nhật'}
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="flex items-center">
-                                                        <div>
-                                                            <img
-                                                                src={iconDot}
-                                                                alt="img"
-                                                                className="block w-[10px] h-[10px]"
-                                                            />
-                                                        </div>
-                                                        <div className="ml-2 text-[14px]">
-                                                            {item.end || 'Chưa cập nhật'}
-                                                        </div>
+                                                    <div className="text-[14px] mt-2 font-semibold">
+                                                        {item.position}
                                                     </div>
                                                 </div>
-                                                <div className="text-[14px] mt-2 font-semibold">{item.position}</div>
-                                            </div>
-                                        ))}
-                                    </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </div>
