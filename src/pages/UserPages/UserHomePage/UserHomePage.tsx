@@ -6,7 +6,7 @@ const UserHomePage = () => {
     return (
         <div className="min-h-screen lg:h-screen relative flex flex-col items-center justify-center lg:block bg-black">
             <video
-                className="h-[450px] lg:h-full w-full block object-cover object-[75%] lg:object-[0]"
+                className="h-[450px] lg:h-full w-full block object-cover object-[75%] lg:object-[0] cursor-not-allowed pointer-events-none select-none"
                 muted
                 loop
                 autoPlay

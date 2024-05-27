@@ -101,7 +101,7 @@ const ProfileUserPage = () => {
                             </div>
                         )}
 
-                        {role === 'admin' && userActive.id !== id && (
+                        {role === 'admin' && userActive.id !== id ? (
                             <div className="flex-1 flex items-end">
                                 <Link
                                     to={`/profileUserPage/${userActive.id}`}
@@ -111,6 +111,18 @@ const ProfileUserPage = () => {
                                         <FaArrowRight />
                                     </div>
                                     <span>Trang cá nhân của bạn</span>
+                                </Link>
+                            </div>
+                        ) : (
+                            <div className="flex-1 flex items-end">
+                                <Link
+                                    to={path.AdminHomePage}
+                                    className="mt-4 bg-btnLinear w-full rounded-full flex items-center justify-center h-10"
+                                >
+                                    <div className="mr-2">
+                                        <FaArrowRight />
+                                    </div>
+                                    <span>Back to home</span>
                                 </Link>
                             </div>
                         )}

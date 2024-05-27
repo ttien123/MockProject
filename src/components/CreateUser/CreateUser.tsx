@@ -118,7 +118,7 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
         <div className="bg-white mt-4 min-h-[400px] p-4 rounded-lg">
             <form onSubmit={onSubmit}>
                 <div className=" max-h-[450px] overflow-auto">
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-4">
+                    <div className="flex flex-col lg:flex-row lg:gap-4">
                         <div className="w-full ">
                             <Input
                                 register={register}
@@ -239,8 +239,8 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
                             />
                         </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                        <div>
+                    <div className="flex lg:items-center justify-between flex-col lg:flex-row">
+                        <div className="mt-3 lg:mt-0">
                             <div className="text-[14px] font-semibold mb-2">Tình trạng hôn nhân</div>
                             <RadioGroup
                                 defaultValue={'Chưa kết hôn'}
@@ -270,7 +270,7 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
                             </RadioGroup>
                         </div>
 
-                        <div>
+                        <div className="mt-3 lg:mt-0">
                             <div className="text-[14px] font-semibold mb-2">Trạng thái tài khoản</div>
                             <RadioGroup
                                 defaultValue={'Active'}
@@ -300,7 +300,7 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
                             </RadioGroup>
                         </div>
 
-                        <div>
+                        <div className="mt-3 lg:mt-0">
                             <div className="text-[14px] font-semibold mb-2">Giới tính</div>
                             <RadioGroup
                                 defaultValue={'Male'}
