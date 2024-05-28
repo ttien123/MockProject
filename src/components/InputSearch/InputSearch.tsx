@@ -39,8 +39,8 @@ const InputSearch = ({ setIsOpenMenu }: Props) => {
                 e.name.toLocaleLowerCase().includes(debouncedValue?.trim().toLocaleLowerCase() || '') &&
                 e.id !== userAccount.id,
         );
-        setOpenDropDown(true);
-        setListAccountFound(newListAccountFound);
+        debouncedValue && setOpenDropDown(true);
+        debouncedValue && setListAccountFound(newListAccountFound);
     };
 
     useEffect(() => {

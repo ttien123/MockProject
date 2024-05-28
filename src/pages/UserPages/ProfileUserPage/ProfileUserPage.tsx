@@ -75,6 +75,7 @@ const ProfileUserPage = () => {
                                 </>
                             )}
                         </div>
+
                         {role === 'user' && (
                             <div className="flex-1 flex items-end">
                                 {userActive.id !== id ? (

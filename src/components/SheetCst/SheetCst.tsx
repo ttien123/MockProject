@@ -10,7 +10,7 @@ interface Props {
 export default function SheetCst({ buttonOpen, content, open, setOpen }: Props) {
     return (
         <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild className="bg-transparent border-none hover:bg-transparent p-0">
+            <SheetTrigger asChild className="bg-transparent hover:bg-transparent p-0 ml-0">
                 {buttonOpen}
             </SheetTrigger>
             <SheetContent className="p-0 border-none w-screen">{content}</SheetContent>

@@ -20,12 +20,8 @@ export const columnsTable: ColumnDef<UserAccountType>[] = [
         header: 'Email',
     },
     {
-        accessorKey: 'typeUser',
-        header: 'Loại nhân sự',
-    },
-    {
         accessorKey: 'stateAccount',
-        header: 'Trạng thái tài khoản',
+        header: 'Trạng thái',
     },
     {
         accessorKey: 'group',

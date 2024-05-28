@@ -103,3 +103,9 @@
 .rdp-dropdown_year .rdp-dropdown {
     flex: 1;
 }
+
+.react-datetime-picker__wrapper {
+    border-color: #878787;
+    border-radius: 4px;
+    padding: 0 12px;
+}

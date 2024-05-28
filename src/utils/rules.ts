@@ -3,40 +3,37 @@ import * as yup from 'yup';
 const handleConfirmPasswordYup = (refString: string) => {
     return yup
         .string()
-        .required('Confirm Password is a required field')
-        .min(6, 'Length from 6 - 160 characters')
-        .max(160, 'Length from 6 - 160 characters')
-        .oneOf([yup.ref(refString)], 'Re-enter the password does not match');
+        .required('Trường này là bắt buộc')
+        .min(6, 'Độ dài từ 6 - 160 ký tự')
+        .max(160, 'Độ dài từ 6 - 160 ký tự')
+        .oneOf([yup.ref(refString)], 'Nhập lại mật khẩu không khớp');
 };
 
 export const authSchema = yup.object({
     email: yup
         .string()
-        .email('This is not an email')
-        .required('Email is a required field')
-        .min(4, 'Email must be at least 4 characters'),
-    password: yup.string().required('Password is a required field').min(6, 'Password must be at least 6 characters'),
+        .email('Đây không phải email')
+        .required('Trường này là bắt buộc')
+        .min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    password: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
     confirmPassword: handleConfirmPasswordYup('password'),
 });
 
 export const repairInfoUserSchema = yup.object({
-    emailPersonal: yup.string().email('This is not an email'),
-    email: yup.string().email('This is not an email').required('This is a required field'),
-    gender: yup.string().required('This is a required field'),
-    birthday: yup.string().required('This is a required field'),
-    phoneNumber: yup.string().required('This is a required field').min(6, 'This field must be at least 6 characters'),
-    residenceAddress: yup
-        .string()
-        .required('This is a required field')
-        .min(6, 'This field must be at least 6 characters'),
-    typeUser: yup.string().required('This is a required field').min(6, 'This field must be at least 6 characters'),
-    contractType: yup.string().required('This is a required field').min(6, 'This field must be at least 6 characters'),
-    group: yup.string().required('This is a required field').min(6, 'This field must be at least 6 characters'),
+    emailPersonal: yup.string().email('Đây không phải email'),
+    email: yup.string().email('Đây không phải email').required('Trường này là bắt buộc'),
+    gender: yup.string().required('Trường này là bắt buộc'),
+    birthday: yup.string().required('Trường này là bắt buộc'),
+    phoneNumber: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    residenceAddress: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    typeUser: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    contractType: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    group: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
     maritalStatus: yup.string(),
     stateAccount: yup.string(),
-    password: yup.string().required('Password is a required field').min(6, 'Password must be at least 6 characters'),
-    name: yup.string().required('Name is a required field').min(6, 'Name must be at least 6 characters'),
-    userManager: yup.string().required('This is a required field').min(6, 'This must be at least 6 characters'),
+    password: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    name: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
+    userManager: yup.string().required('Trường này là bắt buộc').min(6, 'Vui lòng nhập tối thiểu 6 ký tự'),
 });
 
 export type AuthSchema = yup.InferType<typeof authSchema>;

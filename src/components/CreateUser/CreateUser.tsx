@@ -61,6 +61,7 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
     const dispatch = useDispatch();
     const {
         register,
+        setError,
         control,
         handleSubmit,
         setValue,
@@ -85,23 +86,31 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
     });
 
     const onSubmit = handleSubmit((data) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const newUser: any = {
-            ...data,
-            id: uuidv4() as string,
-            processCareer: [] as {
-                start: string;
-                end: string;
-                position: string;
-            }[],
-            emailPersonal: '',
-            role: 'user',
-            listTimekeeping: [] as TimekeepingType[],
-        };
-        const newListAccount = [newUser, ...listAccount];
-        dispatch(setListAccount(newListAccount));
-        toast.success('Tạo tài khoản thành công');
-        setOpenCreateAccount(false);
+        const isValidEmail = listAccount.find((item) => item.email === data.email);
+        if (isValidEmail) {
+            setError('email', {
+                type: 'error',
+                message: 'Email đã tồn tại',
+            });
+        } else {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const newUser: any = {
+                ...data,
+                id: uuidv4() as string,
+                processCareer: [] as {
+                    start: string;
+                    end: string;
+                    position: string;
+                }[],
+                emailPersonal: '',
+                role: 'user',
+                listTimekeeping: [] as TimekeepingType[],
+            };
+            const newListAccount = [newUser, ...listAccount];
+            dispatch(setListAccount(newListAccount));
+            toast.success('Tạo tài khoản thành công');
+            setOpenCreateAccount(false);
+        }
     });
 
     useEffect(() => {
@@ -190,7 +199,7 @@ const CreateUser = ({ setOpenCreateAccount }: Props) => {
                                     </PopoverContent>
                                 </Popover>
                                 <div className="mt-1 mb-1 text-red-600 min-h-[21px] font-semibold text-[14px]">
-                                    {isSelectedDate && 'This is a required field'}
+                                    {isSelectedDate && 'Trường này là bắt buộc'}
                                 </div>
                             </div>
                         </div>

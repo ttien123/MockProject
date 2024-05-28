@@ -43,6 +43,16 @@ const useRouterElements = () => {
             element: <RejectedRoute />,
             children: [
                 {
+                    path: '/',
+                    element: <Navigate to={path.login} />,
+                },
+            ],
+        },
+        {
+            path: '',
+            element: <RejectedRoute />,
+            children: [
+                {
                     path: path.login,
                     element: <Login />,
                 },
