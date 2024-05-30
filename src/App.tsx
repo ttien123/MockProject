@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 function App() {
     const routeElements = useRouterElements();
     useScrollTop();
+
     return (
         <div className="h-screen relative">
             {routeElements}
