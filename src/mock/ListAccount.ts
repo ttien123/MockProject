@@ -65,36 +65,7 @@ const listAccountUser = [
         group: 'Faderless(Faderless 1)',
         residenceAddress: 'TDP Cầu Thành 2, Thị trấn Hùng Sơn, Đại Từ, Thái Nguyên',
         contractType: 'Hợp đồng học việc',
-        listTimekeeping: [
-            {
-                date: 1,
-                startWork: '8:10',
-                workHours: 4,
-                late: 10,
-                endWork: '18:20',
-            },
-            {
-                date: 2,
-                startWork: '8:30',
-                workHours: 4,
-                late: 10,
-                endWork: '18:20',
-            },
-            {
-                date: 13,
-                startWork: '10:10',
-                workHours: 4,
-                late: 10,
-                endWork: '18:20',
-            },
-            {
-                date: 16,
-                startWork: '13:10',
-                workHours: 8,
-                late: 10,
-                endWork: '18:20',
-            },
-        ],
+        listTimekeeping: [],
         processCareer: [
             {
                 start: '15/05/2024',

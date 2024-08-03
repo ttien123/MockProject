@@ -176,6 +176,8 @@ const TimekeepingPage = () => {
     const daysInCurrentMonth = new Date(currentYear, currentMonth, 0).getDate();
     const [startDayOfWeek, setStartDayOfWeek] = useState(1);
 
+    console.log(startDayOfWeek);
+
     const handleOpenModal = (dayWork: TimekeepingType | undefined, dayChoose: number) => {
         setIsOpenModalTimeKeeping(true);
         dayWork && setDaySelected(dayWork);
@@ -328,7 +330,7 @@ const TimekeepingPage = () => {
                                         </div>
                                     );
                                 })}
-                            {Array(startDayOfWeek - 1)
+                            {Array(35 - (startDayOfWeek - 1) - Number(daysInCurrentMonth))
                                 .fill(0)
                                 .map((_, index) => (
                                     <div
